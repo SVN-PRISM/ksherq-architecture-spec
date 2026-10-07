@@ -1,5 +1,6 @@
-# ksherq-architecture-spec
-Deterministic Latent Tensor Guidance &amp; # # KSHERQ Architecture Specification: Deterministic Latent Tensor Guidance
+
+
+# KSHERQ Architecture Specification: Deterministic Latent Tensor Guidance
 
 > **Version:** 1.0-RFC  
 > **Classification:** DeepTech Architecture & Topological Specification  
@@ -24,7 +25,7 @@ Large Language Models (LLMs) suffer from inherent stochastic volatility, halluci
 ### 2. The Nazaryan Octet (ℝ³⁸⁴ Basis)
 The geometric reference space is founded on an 8-dimensional orthonormal basis constructed via Gram-Schmidt orthogonalization across 384-dimensional latent representations:
 
-> **e_i = (v_i - ∑_{j=1}^{i-1} ⟨v_i, e_j⟩ e_j) / ||v_i - ∑_{j=1}^{i-1} ⟨v_i, e_j⟩ e_j||**
+$$e_i = \frac{v_i - \sum_{j=1}^{i-1} \langle v_i, e_j \rangle e_j}{\|v_i - \sum_{j=1}^{i-1} \langle v_i, e_j \rangle e_j\|}$$
 
 * **Perpendicular Axes:** 8 strictly orthogonal semantic axes (90°).
 * **Language Invariance:** Strips grammatical and syntactic noise. Cross-lingual primitives (*Justice*, *Справедливость*, *Արդարություն*) project into identical geometric neighborhoods.
@@ -32,7 +33,7 @@ The geometric reference space is founded on an 8-dimensional orthonormal basis c
 ### 3. Dual-Update VRAM Synchronization
 To avoid "phase-shock" during latent tensor alignment, KSHERQ executes atomic memory synchronization between Key-Value (KV) cache and current hidden state vectors:
 
-> **V_corrected = P_hull · V_gen**
+$$V_{\text{corrected}} = P_{\text{hull}} \cdot V_{\text{gen}}$$
 
 * **Hardware Alignment:** Native alignment to 384-bit memory bus width (NVIDIA Tensor Cores / TPU SIMD architectures).
 * **Attention Integrity:** 100% preservation of self-attention matrices.
@@ -72,14 +73,7 @@ namespace ksherq::core {
         const float* crystal_hull_ptr
     );
 }
-```
-
----
-
-## License
-
-This architectural specification is released under the **MIT License**.  
+License
+​This architectural specification is released under the MIT License.
 The underlying KSHERQ Engine core algorithms and baked binary containers remain proprietary IP.
-
-*(c) 2026 SVN / KSHERQ Architecture Team. Lead Architect: Sergei Nazarian.*
-
+​(c) 2026 SVN / KSHERQ Architecture Team. Lead Architect: Sergei Nazarian.
