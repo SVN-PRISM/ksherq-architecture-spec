@@ -1,5 +1,3 @@
-
-
 # KSHERQ Architecture Specification: Deterministic Latent Tensor Guidance
 
 > **Version:** 1.0-RFC  
@@ -12,7 +10,7 @@
 
 Large Language Models (LLMs) suffer from inherent stochastic volatility, hallucinations, and semantic drift due to the probabilistic nature of autoregressive sampling. 
 
-**KSHERQ Core** introduces a deterministic, hardware-native alternative to software-level prompt guardrails. By combining **In-Flight Latent Tensor Guidance** in **ℝ³⁸⁴** with CUDA-level VRAM interception, KSHERQ enforces strict geometric boundaries on hidden states (**V_gen**) during inference without triggering phase-shock or retraining the base model.
+**KSHERQ Core** introduces a deterministic, hardware-native alternative to software-level prompt guardrails. By combining **In-Flight Latent Tensor Guidance** in **R^384** with CUDA-level VRAM interception, KSHERQ enforces strict geometric boundaries on hidden states (V_gen) during inference without triggering phase-shock or retraining the base model.
 
 ---
 
@@ -22,33 +20,33 @@ Large Language Models (LLMs) suffer from inherent stochastic volatility, halluci
 - **Design Time (Calibration):** Extracts semantic primitives, builds the **Nazaryan Octet** (orthonormal basis via Gram-Schmidt process), and computes 13 domain-specific centroids and Convex Hull numerical boundaries.
 - **Run Time (Execution):** Loads compact binary *Crystals* into GPU VRAM in sub-milliseconds. Intercepts hidden state tensors **V_gen** in 1 system tick with sub-millisecond latency.
 
-### 2. The Nazaryan Octet (ℝ³⁸⁴ Basis)
+### 2. The Nazaryan Octet (R^384 Basis)
 The geometric reference space is founded on an 8-dimensional orthonormal basis constructed via Gram-Schmidt orthogonalization across 384-dimensional latent representations:
 
-$$e_i = \frac{v_i - \sum_{j=1}^{i-1} \langle v_i, e_j \rangle e_j}{\|v_i - \sum_{j=1}^{i-1} \langle v_i, e_j \rangle e_j\|}$$
+> e_i = (v_i - sum(v_i, e_j) * e_j) / ||v_i - sum(v_i, e_j) * e_j||
 
-* **Perpendicular Axes:** 8 strictly orthogonal semantic axes (90°).
+* **Perpendicular Axes:** 8 strictly orthogonal semantic axes (90 degrees).
 * **Language Invariance:** Strips grammatical and syntactic noise. Cross-lingual primitives (*Justice*, *Справедливость*, *Արդարություն*) project into identical geometric neighborhoods.
 
 ### 3. Dual-Update VRAM Synchronization
 To avoid "phase-shock" during latent tensor alignment, KSHERQ executes atomic memory synchronization between Key-Value (KV) cache and current hidden state vectors:
 
-$$V_{\text{corrected}} = P_{\text{hull}} \cdot V_{\text{gen}}$$
+> V_corrected = P_hull * V_gen
 
 * **Hardware Alignment:** Native alignment to 384-bit memory bus width (NVIDIA Tensor Cores / TPU SIMD architectures).
 * **Attention Integrity:** 100% preservation of self-attention matrices.
-* **Execution Latency:** 3.5 – 5.0 µs per layer hook.
+* **Execution Latency:** 3.5 – 5.0 microseconds per layer hook.
 
 ---
 
 ## Benchmark Results (Proof of Stability)
 
-Topological stress-testing of the **ℝ³⁸⁴** space under aggressive deterministic noise (±10%) demonstrates near-perfect invariant retention:
+Topological stress-testing of the **R^384** space under aggressive deterministic noise (+/-10%) demonstrates near-perfect invariant retention:
 
 | Metric | Measured Value | Standard Target | Status |
 | :--- | :--- | :--- | :--- |
 | **Pearson Correlation (r)** | **0.999817** | **> 0.990000** | **PASSED** |
-| **Mean Squared Error (MSE)** | **1.83 × 10⁻⁴** | **< 1.00 × 10⁻³** | **PASSED** |
+| **Mean Squared Error (MSE)** | **1.83 x 10^-4** | **< 1.00 x 10^-3** | **PASSED** |
 | **Cosine Similarity Retention** | **99.998%** | **> 99.500%** | **PASSED** |
 | **VRAM Footprint Compression** | **1 : 100,000** | **> 1 : 10,000** | **PASSED** |
 
