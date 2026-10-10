@@ -77,28 +77,7 @@ The underlying KSHERQ Engine core algorithms and baked binary containers remain 
 ​(c) 2026 SVN / KSHERQ Architecture Team. Lead Architect: Sergei Nazarian.
 
 
-# TECHNICAL REPORT: Architectural Geometric Determinism of KSHERQ
 
-## Executive Summary
-
-The KSHERQ system introduces a paradigm shift in Large Language Model (LLM) governance, moving from probabilistic prompt engineering to exact geometric determinism. By establishing a static topological framework in latent space, KSHERQ guarantees semantic sovereignty and enforces a "Truth Layer" for mission-critical enterprise and legal AI deployments.
-
----
-
-## 1. Governance Paradigm Shift: From Probability to Geometry
-
-Traditional Large Language Models (LLMs) operate as stochastic processes where prompt engineering attempts to navigate a "probabilistic fog." KSHERQ enforces strict geometric constraints during inference, completely isolating stochastic drift (hallucinations) from the final output.
-
-A foundational principle of KSHERQ is the clean phase transition between design-time calibration and run-time execution.
-
-### Phase Transition Matrix: Design Time vs. Run Time
-
-| Characteristic | Design Time (Calibration) | Run Time (Execution) |
-| :--- | :--- | :--- |
-| **Nature of Process** | Probabilistic (Stochastic) | Deterministic (Geometric) |
-| **Role of LLM** | Cluster Generation & Domain Labeler | Managed Target (Passive Synthesizer) |
-| **Processing Methods** | Statistical Analysis, Clustering | Linear Algebra, Matrix Projection |
-| **Computational Class** | Dynamic Feature Extraction | Static Topological Framework |
 | **Phase Output** | 13 Centroids & Manifest Standards | Real-Time Latent Tensor Guidance |
 
 ---
