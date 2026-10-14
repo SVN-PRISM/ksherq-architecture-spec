@@ -1,3 +1,20 @@
+# ⚡ K.S.H.E.R.Q. Ecosystem & Sovereign Intelligence Engine
+
+> **Architect & Founder:** Sergei Nazarian  
+> **Methodology:** SVN Standard | **Architecture:** SOL (Semantic Orchestration Layer)
+
+---
+
+### 📬 Direct Contacts & Strategic Engagement
+
+* **Primary Email:** [s.nazaryn@gmail.com](mailto:s.nazaryn@gmail.com)
+* **Secondary Email:** [SVNazaryn@outlook.com](mailto:SVNazaryn@outlook.com)
+* **LinkedIn Profile:** [Sergei Nazarian on LinkedIn](https://www.linkedin.com/in/sergei-nazarian-a8b251412)
+* **Telegram:** [@SVNazaryn](https://t.me/SVNazaryn)
+
+
+
+
 # KSHERQ Architecture Specification: Deterministic Latent Tensor Guidance
 
 > **Version:** 1.0-RFC  
